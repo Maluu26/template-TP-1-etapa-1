@@ -22,9 +22,7 @@ tPosicao *CriaPosicao(int linha, int coluna)
  */
 tPosicao *ClonaPosicao(tPosicao *posicao)
 {
-    tPosicao *posicaoClone = (tPosicao *)malloc(sizeof(tPosicao));
-    posicaoClone->linha = posicao->linha;
-    posicaoClone->coluna = posicao->coluna;
+    tPosicao *posicaoClone = CriaPosicao(posicao->linha, posicao->coluna);
     return posicaoClone;
 }
 
@@ -53,8 +51,8 @@ int ObtemColunaPosicao(tPosicao *posicao)
  */
 void AtualizaPosicao(tPosicao *posicaoAtual, tPosicao *posicaoNova)
 {
-    posicaoAtual->coluna = &posicaoNova->coluna;
-    posicaoAtual->linha = &posicaoNova->linha;
+    posicaoAtual->coluna = posicaoNova->coluna;
+    posicaoAtual->linha = posicaoNova->linha;
 }
 /**
  * Verifica se 2 posição são iguais
@@ -63,7 +61,7 @@ void AtualizaPosicao(tPosicao *posicaoAtual, tPosicao *posicaoNova)
  */
 bool SaoIguaisPosicao(tPosicao *posicao1, tPosicao *posicao2)
 {
-    Return((posicao1->coluna == posicao2->coluna) && (posicao1->linha == posicao2->linha));
+    return ((posicao1->coluna == posicao2->coluna) && (posicao1->linha == posicao2->linha));
 }
 
 /**
